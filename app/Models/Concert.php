@@ -20,7 +20,7 @@ class Concert extends Model
     /**
      * The users (customers) that are attending the concert.
      */
-    public function customers()
+    public function users()
     {
         return $this->belongsToMany(User::class, 'concert_user');
     }

@@ -5,16 +5,16 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use App\Models\Concert;
+use App\Models\User;
 
-class ConcertSeeder extends Seeder
+class UserSeeder extends Seeder
 {
-    protected $model = Concert::class;
+    protected $model = User::class;
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Concert::factory()->count(100)->create();
+        User::factory()->count(200)->create();
     }
 }
