@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 use App\Http\Requests\StoreArtistRequest;
 use App\Http\Requests\UpdateArtistRequest;
 use App\Models\Artist;
@@ -11,9 +13,11 @@ class ArtistController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() : View
     {
-        //
+        $artists = Artist::all();
+
+        return view('artists.index', compact('artists'));
     }
 
     /**

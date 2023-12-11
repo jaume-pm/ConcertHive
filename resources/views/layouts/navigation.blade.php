@@ -16,6 +16,9 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <x-nav-link :href="route('artists.index')" :active="request()->routeIs('artists.index')">
+                    {{ __('Artists') }}
+                </x-nav-link>
             </div>
 
             <!-- Settings Dropdown -->
