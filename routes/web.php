@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('artists', ArtistController::class)
-    ->only(['index'])
+    ->only(['index', 'show'])
     ->middleware(['auth']);
     
 require __DIR__.'/auth.php';

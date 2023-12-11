@@ -14,6 +14,6 @@ class Artist extends Model
 
     public function concerts()
     {
-        return $this->hasMany(Concert::class);
+        return $this->hasMany(Concert::class, 'artist_name', 'name');
     }
 }
