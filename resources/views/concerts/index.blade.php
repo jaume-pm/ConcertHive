@@ -21,12 +21,6 @@
                                 <p class="text-gray-600">Date & Time: {{ \Carbon\Carbon::parse($concert->date_time)->format('j M Y, g:i a') }}</p>
                                 
                                 <p class="text-gray-600">Artist: {{ $concert->artist_name }}</p>
-                                
-                                <p class="text-gray-600">Ticket Price: ${{ $concert->ticket_price }}</p>
-                                
-                                <p class="text-gray-600">Max Capacity: {{ $concert->max_capacity }}</p>
-                                
-                                <p class="text-gray-600">Venue: {{ $concert->venue }}</p>
 
                             </div>
 

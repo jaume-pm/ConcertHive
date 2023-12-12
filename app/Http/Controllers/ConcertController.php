@@ -40,7 +40,7 @@ class ConcertController extends Controller
      */
     public function show(Concert $concert)
     {
-        //
+        return view('concerts.show', compact('concert'));
     }
 
     /**

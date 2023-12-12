@@ -25,7 +25,9 @@
                             <option value="artist">Artist</option>
                         </select>
                     </div>
+
                     <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Add User</button>
+                    <a href="{{ route('users.index') }}" class="mt-2 inline-block bg-blue-500 text-white py-2 px-4 rounded">Go Back</a>
                 </form>
             </div>
         </div>
