@@ -22,6 +22,12 @@
                 <x-nav-link :href="route('concerts.index')" :active="request()->routeIs('concerts.index')">
                     {{ __('Concerts') }}
                 </x-nav-link>
+                <!-- Can view only view-users -->
+                @can('manage-users')
+                <x-nav-link :href="route('artists.index')" :active="request()->routeIs('artists.index')">
+                    {{ __('Users') }}
+                </x-nav-link>
+                @endcan
             </div>
 
             <!-- Settings Dropdown -->

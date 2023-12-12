@@ -12,7 +12,7 @@
 
                             <div>
 
-                                <span class="text-gray-800 text-xl">{{ $artist->name }}</span>
+                                <span class="text-gray-800 text-2xl font-bold">{{ $artist->name }}</span>
 
                             </div>
 

@@ -37,7 +37,18 @@ Route::resource('artists', ArtistController::class)
 
 Route::resource('concerts', ConcertController::class)
 ->only(['index', 'show'])
-->middleware(['auth']);
+->middleware(['auth','admin']);
 
-    
+/*
+
+Route::middleware(['check_admin'])->group(function () {
+    // Your admin-only routes here
+});
+
+// Example for an artist-only route
+Route::middleware(['check_artist'])->group(function () {
+    // Your artist-only routes here
+});
+
+    */
 require __DIR__.'/auth.php';
