@@ -18,11 +18,9 @@
 
                         </div>
 
-                        <p class="mt-4 text-md text-gray-900">{{ $artist->bio }}</p>
+                        <p class="mt-2 text-xl text-gray-600">Country: <b>{{ $artist->country }}</b></p>
 
-                        <p class="mt-2 text-lg text-gray-600">{{ $artist->country }}</p>
-
-                        <p class="mt-2 text-lg text-gray-600">{{ $artist->concerts()->count() }}</p>
+                        <p class="mt-2 text-lg text-gray-600">Number of concerts: {{ $artist->concerts()->count() }}</p>
 
                         <a href="{{ route('artists.show', $artist) }}" class="mt-2 inline-block bg-blue-500 text-white py-2 px-4 rounded">View Profile</a>
 

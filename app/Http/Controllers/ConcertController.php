@@ -13,7 +13,10 @@ class ConcertController extends Controller
      */
     public function index()
     {
-        //
+        $concerts = Concert::all();
+        
+        return view('concerts.index', compact('concerts'));
+        
     }
 
     /**

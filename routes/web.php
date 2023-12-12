@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\ConcertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,10 @@ Route::middleware('auth')->group(function () {
 Route::resource('artists', ArtistController::class)
     ->only(['index', 'show'])
     ->middleware(['auth']);
+
+Route::resource('concerts', ConcertController::class)
+->only(['index', 'show'])
+->middleware(['auth']);
+
     
 require __DIR__.'/auth.php';

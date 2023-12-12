@@ -15,6 +15,7 @@ class ConcertFactory extends Factory
         $randomArtist = Artist::inRandomOrder()->first();
 
         return [
+            'title' => $this->faker->sentence(4, true),
             'country' => $this->faker->country,
             'city' => $this->faker->city,
             'date_time' => $this->faker->dateTimeBetween('+1 week', '+1 year'),

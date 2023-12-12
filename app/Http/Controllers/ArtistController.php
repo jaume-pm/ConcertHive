@@ -41,21 +41,7 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist)
     {
-    // Find the artist by name
-    $artist = Artist::where('name', 'Sophia Anderson')->first();
-
-    if ($artist) {
-        // Use withCount to get the count directly without loading all records
-        $concertCount = $artist->concerts()->count();
-
-        // Output the result
-        echo "Number of concerts for Sophia Anderson: $concertCount";
-    } else {
-        // Handle the case where the artist is not found
-        echo "Artist Sophia Anderson not found.";
-    }
-    
-        return view('artists.show', compact('artist', 'concertCount'));
+        return view('artists.show', compact('artist'));
     }
 
     /**
