@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreConcertRequest;
 use App\Http\Requests\UpdateConcertRequest;
+use App\Http\Requests\JoinConcertRequest;
 use App\Models\Concert;
 
 class ConcertController extends Controller
@@ -14,9 +15,9 @@ class ConcertController extends Controller
     public function index()
     {
         $concerts = Concert::all();
-        
+
         return view('concerts.index', compact('concerts'));
-        
+
     }
 
     /**
@@ -66,4 +67,32 @@ class ConcertController extends Controller
     {
         //
     }
+
+    public function joinConcert(Concert $concert, JoinConcertRequest $request)
+    {
+        // Get the currently authenticated user
+        $user = auth()->user();
+
+        // Perform logic to check if the user is already attending, etc.
+        if (!$concert->users->contains($user)) {
+            // Add the user to the concert's attendees
+            $concert->users()->attach($user, ['concert_id' => $concert->id]);
+
+            // Optionally, you can add a success message or perform other actions
+            return redirect()->back()->with('success', 'You have joined the concert!');
+        } else {
+            // Optionally, you can add a message or perform other actions
+            return redirect()->back()->with('info', 'You are already attending this concert.');
+        }
+    }
+
+    public function indexUserConcerts()
+    {
+        $user = auth()->user();
+
+        $concerts = $user->concerts;
+
+        return view('concerts.index', compact('concerts'));
+    }
+
 }

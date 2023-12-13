@@ -44,5 +44,11 @@ Route::resource('users', UserController::class)
 ->only(['index', 'show', 'store', 'create'])
 ->middleware(['auth','admin']);
 
+Route::post('/concerts/{concert}/join', [ConcertController::class, 'joinConcert'])->name('concerts.join')
+->middleware(['auth']);;
+
+Route::get('/concerts/user/concerts', [ConcertController::class,'indexUserConcerts'])->name('index.user.concerts')
+->middleware(['auth']);;
+
 
 require __DIR__.'/auth.php';
