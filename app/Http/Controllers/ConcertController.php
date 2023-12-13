@@ -95,4 +95,20 @@ class ConcertController extends Controller
         return view('concerts.index', compact('concerts'));
     }
 
+    public function indexArtistConcerts()
+    {
+        // Get the authenticated user
+        $user = auth()->user();
+
+        // Check if the user has the role of an artist
+        if ($user->isArtist()) {
+            // Retrieve concerts where the artist has the same name as the user
+            $concerts = Concert::whereHas('artist', function ($query) use ($user) {
+                $query->where('name', $user->name);
+            })->get();
+
+            return view('concerts.index', compact('concerts'));
+        }
+
+    }
 }

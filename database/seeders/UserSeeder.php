@@ -37,6 +37,13 @@ class UserSeeder extends Seeder
             'password' => '12345678',
         ]);
 
+        User::factory()->create([
+            'name'=>'Jaume',
+            'role'=>'user',
+            'email'=>'Jaume@PMUD.com',
+            'password' => '12345678',
+        ]);
+
 
     }
 }

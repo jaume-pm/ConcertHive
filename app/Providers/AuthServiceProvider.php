@@ -27,5 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
     Gate::define('manage-users', [UserPolicy::class, 'manageUsers']);
+    Gate::define('manage-my-concerts', [UserPolicy::class, 'manageMyConcerts']);
+    Gate::define('attend-concerts', [UserPolicy::class, 'attendConcerts']);
     }
 }

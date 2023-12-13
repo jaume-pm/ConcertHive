@@ -16,5 +16,8 @@ class ConcertSeeder extends Seeder
     public function run(): void
     {
         Concert::factory()->count(100)->create();
+        Concert::factory()->count(3)->create([
+            'artist_name' => 'Bad Bunny',
+        ]);
     }
 }

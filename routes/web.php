@@ -50,5 +50,8 @@ Route::post('/concerts/{concert}/join', [ConcertController::class, 'joinConcert'
 Route::get('/concerts/user/concerts', [ConcertController::class,'indexUserConcerts'])->name('index.user.concerts')
 ->middleware(['auth']);;
 
+Route::get('/concerts/artist/concerts', [ConcertController::class,'indexArtistConcerts'])->name('index.artist.concerts')
+->middleware(['auth']);;
+
 
 require __DIR__.'/auth.php';

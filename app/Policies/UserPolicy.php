@@ -11,11 +11,22 @@ class UserPolicy
      */
     public function __construct()
     {
-        
+
     }
 
     public function manageUsers(User $user)
-{
-    return $user->isAdmin();
-}
+    {
+        return $user->isAdmin();
+    }
+
+    public function attendConcerts(User $user)
+    {
+        return $user->isUser();
+    }
+
+    public function manageMyConcerts(User $user)
+    {
+        return $user->isArtist();
+    }
+
 }
