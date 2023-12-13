@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -33,6 +34,27 @@ class AuthController extends Controller
             return response()->json(['token' => $token], 201);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Registration failed.'], 500);
+        }
+    }
+
+    public function login(Request $request)
+    {
+        try {
+            $credentials = $request->validate([
+                'email' => 'required|email',
+                'password' => 'required',
+            ]);
+
+            if (Auth::attempt($credentials)) {
+                $user = $request->user();
+                $token = $user->createToken('auth_token')->plainTextToken;
+
+                return response()->json(['token' => $token], 200);
+            } else {
+                throw ValidationException::withMessages(['message' => 'Invalid credentials']);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Login failed.'], 401);
         }
     }
 }

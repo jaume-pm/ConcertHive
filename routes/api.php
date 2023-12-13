@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\JsonResponse;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\ConcertController;
@@ -26,8 +27,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::get('artists', [ArtistController::class, 'index']);
     Route::post('register', [AuthController::class, 'register']);
+    Route::get('concerts', [ConcertController::class, 'index']);
+    Route::post('login', [AuthController::class, 'login']);
 });
 
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::get('concerts', [ConcertController::class, 'index']);
+    Route::get('user/concerts', [ConcertController::class, 'indexUserConcerts']);
 });

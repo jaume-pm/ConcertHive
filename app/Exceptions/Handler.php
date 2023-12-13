@@ -18,6 +18,11 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+    protected $dontReport = [
+        // ...
+        UnauthorizedException::class,
+    ];
+
     /**
      * Register the exception handling callbacks for the application.
      */
@@ -27,4 +32,6 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    
 }

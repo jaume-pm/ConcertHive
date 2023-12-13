@@ -13,4 +13,11 @@ class ConcertController extends Controller
         $concerts = Concert::all();
         return response()->json($concerts);
     }
+
+    public function indexUserConcerts()
+    {
+        $user = auth()->user();
+        $concerts = $user->concerts;
+        return response()->json($concerts);
+    }
 }
